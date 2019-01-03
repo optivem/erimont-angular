@@ -1,4 +1,4 @@
-export class Product {
+export class Supplier {
   supplierId: number;
   companyName: string;
   contactName: string;
