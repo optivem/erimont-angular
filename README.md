@@ -307,4 +307,10 @@ Inside src\northwind\src\app\suppliers\suppliers.component.html, set the content
   </div>
 </div>
 
-  
+## Supplier - Supplier Detail / Delete View
+
+src\northwind\src\app\supplier-detail\supplier-detail.component.ts
+
+src\northwind\src\app\supplier-detail\supplier-detail.component.html
+
+
