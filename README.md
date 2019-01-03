@@ -318,3 +318,9 @@ src\northwind\src\app\supplier-detail\supplier-detail.component.html
 src\northwind\src\app\supplier-add\supplier-add.component.html
 
 src\northwind\src\app\supplier-add\supplier-add.component.ts
+
+## Supplier - View - Edit
+
+src\northwind\src\app\supplier-edit\supplier-edit.component.html
+
+src\northwind\src\app\supplier-edit\supplier-edit.component.ts

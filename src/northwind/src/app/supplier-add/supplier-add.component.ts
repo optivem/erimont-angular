@@ -13,7 +13,6 @@ export class SupplierAddComponent implements OnInit {
 
   supplierForm: FormGroup;
   companyName: string='';
-
   isLoadingResults = false;
 
   constructor(private router: Router, private api: ApiService, private formBuilder: FormBuilder) { }
