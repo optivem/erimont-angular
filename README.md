@@ -298,7 +298,7 @@ Inside src\northwind\src\app\suppliers\suppliers.component.html, set the content
       <!-- Company Column -->
       <ng-container matColumnDef="companyName">
         <th mat-header-cell *matHeaderCellDef>Company Name</th>
-        <td mat-cell *matCellDef="let row">$ {{row.companyName}}</td>
+        <td mat-cell *matCellDef="let row">{{row.companyName}}</td>
       </ng-container>
 
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
