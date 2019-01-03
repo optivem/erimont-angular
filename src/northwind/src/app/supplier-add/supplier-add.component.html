@@ -9,17 +9,10 @@
   <mat-card class="example-card">
     <form [formGroup]="supplierForm" (ngSubmit)="onFormSubmit(supplierForm.value)">
       <mat-form-field class="example-full-width">
-        <input matInput placeholder="Supplier Id" formControlName="supplierId"
-               [errorStateMatcher]="matcher">
-        <mat-error>
-          <span *ngIf="!supplierForm.get('supplierId').valid && supplierForm.get('companyName').touched">Please enter Supplier Name</span>
-        </mat-error>
-      </mat-form-field>
-      <mat-form-field class="example-full-width">
         <input matInput placeholder="Company Name" formControlName="companyName"
                [errorStateMatcher]="matcher">
         <mat-error>
-          <span *ngIf="!supplierForm.get('supplierId').valid && supplierForm.get('companyName').touched">Please enter Supplier Description</span>
+          <span *ngIf="supplierForm.get('companyName').touched">Please enter Company Name</span>
         </mat-error>
       </mat-form-field>
       <div class="button-row">

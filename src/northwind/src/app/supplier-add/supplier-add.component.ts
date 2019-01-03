@@ -12,7 +12,6 @@ import { ApiService } from '../api.service';
 export class SupplierAddComponent implements OnInit {
 
   supplierForm: FormGroup;
-  supplierId: number=0;
   companyName: string='';
 
   isLoadingResults = false;
@@ -21,7 +20,6 @@ export class SupplierAddComponent implements OnInit {
 
   ngOnInit() {
     this.supplierForm = this.formBuilder.group({
-      'supplierId' : [null, Validators.required],
       'companyName' : [null, Validators.required]
     });
   }
