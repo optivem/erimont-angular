@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
-import { ApiService } from '../api.service';
-import { Supplier } from '../supplier';
+import { ApiService } from '../shared/api.service';
+import { Supplier } from '../shared/supplier';
 
 @Component({
   selector: 'app-supplier-detail',

@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { FormControl, FormGroupDirective, FormBuilder, FormGroup, NgForm, Validators } from '@angular/forms';
 
-import { ApiService } from '../api.service';
+import { ApiService } from '../shared/api.service';
 
 @Component({
   selector: 'app-supplier-edit',

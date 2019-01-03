@@ -4,9 +4,6 @@ import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-
 import {
   MatInputModule,
   MatPaginatorModule,
@@ -21,18 +18,20 @@ import {
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import { SuppliersModule } from './suppliers/suppliers.module';
+import { SuppliersComponent } from './suppliers.component';
+import { SupplierDetailComponent } from './supplier-detail/supplier-detail.component';
+import { SupplierAddComponent } from './supplier-add/supplier-add.component';
+import { SupplierEditComponent } from './supplier-edit/supplier-edit.component';
+
+import { SuppliersRoutingModule } from './suppliers-routing.module';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-  ],
   imports: [
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    AppRoutingModule,
     BrowserAnimationsModule,
     MatInputModule,
     MatTableModule,
@@ -43,9 +42,19 @@ import { SuppliersModule } from './suppliers/suppliers.module';
     MatButtonModule,
     MatCardModule,
     MatFormFieldModule,
-    SuppliersModule
+    SuppliersRoutingModule
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  declarations: [
+    SuppliersComponent,
+    SupplierDetailComponent,
+    SupplierAddComponent,
+    SupplierEditComponent
+  ],
+  exports: [
+    SuppliersComponent,
+    SupplierDetailComponent,
+    SupplierAddComponent,
+    SupplierEditComponent
+  ],
 })
-export class AppModule { }
+export class SuppliersModule { }
