@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { FormControl, FormGroupDirective, FormBuilder, FormGroup, NgForm, Validators } from '@angular/forms';
+
+import { ApiService } from '../api.service';
 
 @Component({
   selector: 'app-supplier-add',
@@ -7,9 +11,32 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SupplierAddComponent implements OnInit {
 
-  constructor() { }
+  supplierForm: FormGroup;
+  supplierId: number=0;
+  companyName: string='';
+
+  isLoadingResults = false;
+
+  constructor(private router: Router, private api: ApiService, private formBuilder: FormBuilder) { }
 
   ngOnInit() {
+    this.supplierForm = this.formBuilder.group({
+      'supplierId' : [null, Validators.required],
+      'companyName' : [null, Validators.required]
+    });
+  }
+
+  onFormSubmit(form:NgForm) {
+    this.isLoadingResults = true;
+    this.api.addSupplier(form)
+      .subscribe(res => {
+          let id = res['supplierId'];
+          this.isLoadingResults = false;
+          this.router.navigate(['/supplier-details', id]);
+        }, (err) => {
+          console.log(err);
+          this.isLoadingResults = false;
+        });
   }
 
 }
