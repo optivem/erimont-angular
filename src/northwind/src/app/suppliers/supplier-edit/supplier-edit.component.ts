@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { FormControl, FormGroupDirective, FormBuilder, FormGroup, NgForm, Validators } from '@angular/forms';
 
-import { ApiService } from '../shared/api.service';
+import { SupplierService } from '../shared/supplier.service';
 
 @Component({
   selector: 'app-supplier-edit',
@@ -17,7 +17,7 @@ export class SupplierEditComponent implements OnInit {
   companyName: string='';
   isLoadingResults = false;
 
-  constructor(private router: Router, private route: ActivatedRoute, private api: ApiService, private formBuilder: FormBuilder) { }
+  constructor(private router: Router, private route: ActivatedRoute, private service: SupplierService, private formBuilder: FormBuilder) { }
 
   ngOnInit() {
     this.getSupplier(this.route.snapshot.params['id']);
@@ -28,7 +28,7 @@ export class SupplierEditComponent implements OnInit {
   }
 
   getSupplier(id) {
-    this.api.getSupplier(id).subscribe(data => {
+    this.service.getSupplier(id).subscribe(data => {
       this.supplierId = data.supplierId;
       this.supplierForm.setValue({
         supplierId: data.supplierId,
@@ -40,7 +40,7 @@ export class SupplierEditComponent implements OnInit {
   onFormSubmit(form:NgForm) {
     let id = this.supplierId; 
     this.isLoadingResults = true;
-    this.api.updateSupplier(this.supplierId, form)
+    this.service.updateSupplier(this.supplierId, form)
       .subscribe(res => {
           // TODO: VC: Handling no-result case
           // let id = res["supplierId"];

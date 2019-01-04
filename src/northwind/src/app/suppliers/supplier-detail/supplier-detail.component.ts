@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
-import { ApiService } from '../shared/api.service';
+import { SupplierService } from '../shared/supplier.service';
 import { Supplier } from '../shared/supplier';
 
 @Component({
@@ -27,14 +27,14 @@ export class SupplierDetailComponent implements OnInit {
   
   isLoadingResults = true;
 
-  constructor(private route: ActivatedRoute, private api: ApiService, private router: Router) { }
+  constructor(private route: ActivatedRoute, private service: SupplierService, private router: Router) { }
 
   ngOnInit() {
     this.getSupplierDetails(this.route.snapshot.params['id']);
   }
 
   getSupplierDetails(id) {
-    this.api.getSupplier(id)
+    this.service.getSupplier(id)
       .subscribe(data => {
         this.supplier = data;
         console.log(this.supplier);
@@ -44,7 +44,7 @@ export class SupplierDetailComponent implements OnInit {
 
   deleteSupplier(id) {
     this.isLoadingResults = true;
-    this.api.deleteSupplier(id)
+    this.service.deleteSupplier(id)
       .subscribe(res => {
           this.isLoadingResults = false;
           this.router.navigate(['/suppliers']);
