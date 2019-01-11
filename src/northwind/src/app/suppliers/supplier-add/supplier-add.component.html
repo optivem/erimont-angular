@@ -4,22 +4,15 @@
     <mat-spinner *ngIf="isLoadingResults"></mat-spinner>
   </div>
   <div class="button-row">
-    <a mat-flat-button color="primary" (click)="supplierDetails()"><mat-icon>info</mat-icon></a>
+    <a mat-flat-button color="primary" [routerLink]="['/suppliers']"><mat-icon>list</mat-icon></a>
   </div>
   <mat-card class="example-card">
     <form [formGroup]="supplierForm" (ngSubmit)="onFormSubmit(supplierForm.value)">
       <mat-form-field class="example-full-width">
-          <input matInput placeholder="SupplierId" formControlName="supplierId"
-                  [errorStateMatcher]="matcher">
-          <mat-error>
-            <span *ngIf="!supplierForm.get('supplierId').valid && supplierForm.get('supplierId').touched">Please enter Supplier Id</span>
-          </mat-error>
-        </mat-form-field>
-      <mat-form-field class="example-full-width">
-        <input matInput placeholder="Company Name" formControlName="companyName"
+        <input matInput placeholder="Company" formControlName="company"
                [errorStateMatcher]="matcher">
         <mat-error>
-          <span *ngIf="!supplierForm.get('companyName').valid && supplierForm.get('companyName').touched">Please enter Company Name</span>
+          <span *ngIf="supplierForm.get('company').touched">Please enter Company</span>
         </mat-error>
       </mat-form-field>
       <div class="button-row">
