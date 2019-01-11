@@ -37,7 +37,7 @@ getSupplier(id: number): Observable<Supplier> {
 
 addSupplier (supplier): Observable<Supplier> {
   return this.http.post<Supplier>(apiUrl, supplier, httpOptions).pipe(
-    tap((supplier: Supplier) => console.log(`added supplier w/ id=${supplier.id}`)),
+    tap((supplier: Supplier) => console.log(`added supplier w/ id=${supplier.supplierId}`)),
     catchError(this.handleError<Supplier>('addSupplier'))
   );
 }

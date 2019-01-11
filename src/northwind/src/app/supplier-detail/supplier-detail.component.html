@@ -8,20 +8,20 @@
   </div>
   <mat-card class="example-card">
     <mat-card-header>
-      <mat-card-title><h2>{{supplier.id}}</h2></mat-card-title>
-      <mat-card-subtitle>{{supplier.company}}</mat-card-subtitle>
+      <mat-card-title><h2>{{supplier.supplierId}}</h2></mat-card-title>
+      <mat-card-subtitle>{{supplier.companyName}}</mat-card-subtitle>
     </mat-card-header>
     <mat-card-content>
       <dl>
         <dt>Supplier Id:</dt>
-        <dd>{{supplier.id}}</dd>
+        <dd>{{supplier.supplierId}}</dd>
         <dt>Company Name:</dt>
-        <dd>{{supplier.company}}</dd>
+        <dd>{{supplier.companyName}}</dd>
       </dl>
     </mat-card-content>
     <mat-card-actions>
-      <a mat-flat-button color="primary" [routerLink]="['/supplier-edit', supplier.id]"><mat-icon>edit</mat-icon></a>
-      <a mat-flat-button color="warn" (click)="deleteSupplier(supplier.id)"><mat-icon>delete</mat-icon></a>
+      <a mat-flat-button color="primary" [routerLink]="['/supplier-edit', supplier.supplierId]"><mat-icon>edit</mat-icon></a>
+      <a mat-flat-button color="warn" (click)="deleteSupplier(supplier.supplierId)"><mat-icon>delete</mat-icon></a>
     </mat-card-actions>
   </mat-card>
 </div>

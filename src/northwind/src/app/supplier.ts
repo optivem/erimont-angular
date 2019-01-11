@@ -1,6 +1,6 @@
 export class Supplier {
-  id: number;
-  company: string;
+  supplierId: number;
+  companyName: string;
   contactName: string;
   contactTitle: string;
   address: string;

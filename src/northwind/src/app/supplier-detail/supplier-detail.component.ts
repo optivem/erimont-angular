@@ -11,8 +11,8 @@ import { Supplier } from '../supplier';
 })
 export class SupplierDetailComponent implements OnInit {
 
-  supplier: Supplier = { id: 0, 
-    company: '', 
+  supplier: Supplier = { supplierId: 0, 
+    companyName: '', 
     contactName: '',
     contactTitle: '',
     address: '',

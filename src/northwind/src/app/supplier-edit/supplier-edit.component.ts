@@ -13,8 +13,8 @@ import { ApiService } from '../api.service';
 export class SupplierEditComponent implements OnInit {
 
   supplierForm: FormGroup;
-  id: number=0;
-  company: string='';
+  supplierId: number=0;
+  companyName: string='';
   isLoadingResults = false;
 
   constructor(private router: Router, private route: ActivatedRoute, private api: ApiService, private formBuilder: FormBuilder) { }
@@ -22,28 +22,28 @@ export class SupplierEditComponent implements OnInit {
   ngOnInit() {
     this.getSupplier(this.route.snapshot.params['id']);
     this.supplierForm = this.formBuilder.group({
-      'id' : [null, Validators.required],      
-      'company' : [null, Validators.required]
+      'supplierId' : [null, Validators.required],      
+      'companyName' : [null, Validators.required]
     });
   }
 
   getSupplier(id) {
     this.api.getSupplier(id).subscribe(data => {
-      this.id = data.id;
+      this.supplierId = data.supplierId;
       this.supplierForm.setValue({
-        id: data.id,
-        company: data.company
+        supplierId: data.supplierId,
+        companyName: data.companyName
       });
     });
   }
 
   onFormSubmit(form:NgForm) {
-    let id = this.id; 
+    let id = this.supplierId; 
     this.isLoadingResults = true;
-    this.api.updateSupplier(this.id, form)
+    this.api.updateSupplier(this.supplierId, form)
       .subscribe(res => {
           // TODO: VC: Handling no-result case
-          // let id = res["id"];
+          // let id = res["supplierId"];
           this.isLoadingResults = false;
           this.router.navigate(['/supplier-details', id]);
         }, (err) => {
@@ -54,6 +54,6 @@ export class SupplierEditComponent implements OnInit {
   }
 
   supplierDetails() {
-    this.router.navigate(['/supplier-details', this.id]);
+    this.router.navigate(['/supplier-details', this.supplierId]);
   }
 }
