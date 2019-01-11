@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ApiService } from '../api.service';
-import { Supplier } from '../supplier';
+import { SupplierService } from './shared/supplier.service';
+import { Supplier } from './shared/supplier';
 
 @Component({
   selector: 'app-suppliers',
@@ -13,10 +13,10 @@ export class SuppliersComponent implements OnInit {
   data: Supplier[] = [];
   isLoadingResults = true;
 
-  constructor(private api: ApiService) { }
+  constructor(private service: SupplierService) { }
 
   ngOnInit() {
-    this.api.getSuppliers()
+    this.service.getSuppliers()
       .subscribe(res => {
         this.data = res;
         console.log(this.data);
