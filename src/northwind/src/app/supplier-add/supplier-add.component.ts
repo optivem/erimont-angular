@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormControl, FormGroupDirective, FormBuilder, FormGroup, NgForm, Validators } from '@angular/forms';
 
-import { SupplierService } from '../shared/supplier.service';
+import { ApiService } from '../api.service';
 
 @Component({
   selector: 'app-supplier-add',
@@ -15,7 +15,7 @@ export class SupplierAddComponent implements OnInit {
   company: string='';
   isLoadingResults = false;
 
-  constructor(private router: Router, private service: SupplierService, private formBuilder: FormBuilder) { }
+  constructor(private router: Router, private api: ApiService, private formBuilder: FormBuilder) { }
 
   ngOnInit() {
     this.supplierForm = this.formBuilder.group({
@@ -25,7 +25,7 @@ export class SupplierAddComponent implements OnInit {
 
   onFormSubmit(form:NgForm) {
     this.isLoadingResults = true;
-    this.service.addSupplier(form)
+    this.api.addSupplier(form)
       .subscribe(res => {
           let id = res['id'];
           this.isLoadingResults = false;

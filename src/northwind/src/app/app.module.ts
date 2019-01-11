@@ -18,13 +18,19 @@ import {
   MatCardModule,
   MatFormFieldModule } from "@angular/material";
 
+import { SuppliersComponent } from './suppliers/suppliers.component';
+import { SupplierDetailComponent } from './supplier-detail/supplier-detail.component';
+import { SupplierAddComponent } from './supplier-add/supplier-add.component';
+import { SupplierEditComponent } from './supplier-edit/supplier-edit.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
-import { SuppliersModule } from './suppliers/suppliers.module';
 
 @NgModule({
   declarations: [
     AppComponent,
+    SuppliersComponent,
+    SupplierDetailComponent,
+    SupplierAddComponent,
+    SupplierEditComponent
   ],
   imports: [
     BrowserModule,
@@ -41,8 +47,7 @@ import { SuppliersModule } from './suppliers/suppliers.module';
     MatIconModule,
     MatButtonModule,
     MatCardModule,
-    MatFormFieldModule,
-    SuppliersModule
+    MatFormFieldModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,8 +1,0 @@
-title: Optivem Northwind (Angular)
-description: Frontend application for Northwind in Angular
-google_analytics: UA-63306472-4
-show_downloads: true
-theme: jekyll-theme-cayman
-
-gems:
-  - jekyll-mentions
