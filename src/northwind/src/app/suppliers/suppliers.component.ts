@@ -9,7 +9,7 @@ import { Supplier } from '../supplier';
 })
 export class SuppliersComponent implements OnInit {
 
-  displayedColumns: string[] = ['supplierId', 'companyName'];
+  displayedColumns: string[] = ['id', 'company'];
   data: Supplier[] = [];
   isLoadingResults = true;
 

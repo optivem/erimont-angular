@@ -12,14 +12,14 @@ import { ApiService } from '../api.service';
 export class SupplierAddComponent implements OnInit {
 
   supplierForm: FormGroup;
-  companyName: string='';
+  company: string='';
   isLoadingResults = false;
 
   constructor(private router: Router, private api: ApiService, private formBuilder: FormBuilder) { }
 
   ngOnInit() {
     this.supplierForm = this.formBuilder.group({
-      'companyName' : [null, Validators.required]
+      'company' : [null, Validators.required]
     });
   }
 
@@ -27,7 +27,7 @@ export class SupplierAddComponent implements OnInit {
     this.isLoadingResults = true;
     this.api.addSupplier(form)
       .subscribe(res => {
-          let id = res['supplierId'];
+          let id = res['id'];
           this.isLoadingResults = false;
           this.router.navigate(['/supplier-details', id]);
         }, (err) => {
