@@ -1,14 +1,19 @@
 export class Supplier {
   id: number;
   company: string;
-  contactName: string;
-  contactTitle: string;
+  lastName: string;
+  firstName: string;
+  emailAddress: string;
+  jobTitle: string;
+  businessPhone: string;
+  homePhone: string;
+  mobilePhone: string;
+  faxNumber: string;
   address: string;
   city: string;
-  region: string;
-  postalCode: string;
-  country: string;
-  phone: string;
-  fax: string;
-  homePage: string;
+  stateProvince: string;
+  zipPostalCode: string;
+  countryRegion: string;
+  webPage: string;
+  notes: string;
 }

@@ -23,7 +23,22 @@ export class SupplierEditComponent implements OnInit {
     this.getSupplier(this.route.snapshot.params['id']);
     this.supplierForm = this.formBuilder.group({
       'id' : [null, Validators.required],      
-      'company' : [null, Validators.required]
+      'company' : [null, Validators.required],
+      'lastName' : [null, Validators.required],
+      'firstName' : [null, Validators.required],
+      'emailAddress' : [null, Validators.required],
+      'jobTitle' : [null, Validators.required],
+      'businessPhone' : [null, Validators.required],
+      'homePhone' : [null, Validators.required],
+      'mobilePhone' : [null, Validators.required],
+      'faxNumber' : [null, Validators.required],
+      'address' : [null, Validators.required],
+      'city' : [null, Validators.required],
+      'stateProvince' : [null, Validators.required],
+      'zipPostalCode' : [null, Validators.required],
+      'countryRegion' : [null, Validators.required],
+      'webPage' : [null, Validators.required],
+      'notes' : [null, Validators.required]
     });
   }
 
@@ -32,7 +47,22 @@ export class SupplierEditComponent implements OnInit {
       this.id = data.id;
       this.supplierForm.setValue({
         id: data.id,
-        company: data.company
+        company: data.company,
+        lastName: data.lastName,
+        firstName: data.firstName,
+        emailAddress: data.emailAddress,
+        jobTitle: data.jobTitle,
+        businessPhone: data.businessPhone,
+        homePhone: data.homePhone,
+        mobilePhone: data.mobilePhone,
+        faxNumber: data.faxNumber,
+        address: data.address,
+        city: data.city,
+        stateProvince: data.stateProvince,
+        zipPostalCode: data.zipPostalCode,
+        countryRegion: data.countryRegion,
+        webPage: data.webPage,
+        notes: data.notes
       });
     });
   }
