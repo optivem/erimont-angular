@@ -12,9 +12,116 @@
         <input matInput placeholder="Company" formControlName="company"
                [errorStateMatcher]="matcher">
         <mat-error>
-          <span *ngIf="supplierForm.get('company').touched">Please enter Company</span>
+          <span *ngIf="!supplierForm.get('company').valid && supplierForm.get('company').touched">Please enter Company</span>
         </mat-error>
       </mat-form-field>
+      <mat-form-field class="example-full-width">
+        <input matInput placeholder="Last Name" formControlName="lastName"
+               [errorStateMatcher]="matcher">
+        <mat-error>
+          <span *ngIf="!supplierForm.get('lastName').valid && supplierForm.get('lastName').touched">Please enter Last Name</span>
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field class="example-full-width">
+        <input matInput placeholder="First Name" formControlName="firstName"
+               [errorStateMatcher]="matcher">
+        <mat-error>
+          <span *ngIf="!supplierForm.get('firstName').valid && supplierForm.get('firstName').touched">Please enter First Name</span>
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field class="example-full-width">
+        <input matInput placeholder="Email Address" formControlName="emailAddress"
+               [errorStateMatcher]="matcher">
+        <mat-error>
+          <span *ngIf="!supplierForm.get('emailAddress').valid && supplierForm.get('emailAddress').touched">Please enter Email Address</span>
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field class="example-full-width">
+        <input matInput placeholder="Job Title" formControlName="jobTitle"
+               [errorStateMatcher]="matcher">
+        <mat-error>
+          <span *ngIf="!supplierForm.get('jobTitle').valid && supplierForm.get('jobTitle').touched">Please enter Job Title</span>
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field class="example-full-width">
+        <input matInput placeholder="Business Phone" formControlName="businessPhone"
+               [errorStateMatcher]="matcher">
+        <mat-error>
+          <span *ngIf="!supplierForm.get('businessPhone').valid && supplierForm.get('businessPhone').touched">Please enter Business Phone</span>
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field class="example-full-width">
+        <input matInput placeholder="Home Phone" formControlName="homePhone"
+               [errorStateMatcher]="matcher">
+        <mat-error>
+          <span *ngIf="!supplierForm.get('homePhone').valid && supplierForm.get('homePhone').touched">Please enter Home Phone</span>
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field class="example-full-width">
+        <input matInput placeholder="Mobile Phone" formControlName="mobilePhone"
+               [errorStateMatcher]="matcher">
+        <mat-error>
+          <span *ngIf="!supplierForm.get('mobilePhone').valid && supplierForm.get('mobilePhone').touched">Please enter Mobile Phone</span>
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field class="example-full-width">
+        <input matInput placeholder="Fax Number" formControlName="faxNumber"
+               [errorStateMatcher]="matcher">
+        <mat-error>
+          <span *ngIf="!supplierForm.get('faxNumber').valid && supplierForm.get('faxNumber').touched">Please enter Fax Number</span>
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field class="example-full-width">
+        <input matInput placeholder="Address" formControlName="address"
+               [errorStateMatcher]="matcher">
+        <mat-error>
+          <span *ngIf="!supplierForm.get('address').valid && supplierForm.get('address').touched">Please enter Address</span>
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field class="example-full-width">
+        <input matInput placeholder="City" formControlName="city"
+               [errorStateMatcher]="matcher">
+        <mat-error>
+          <span *ngIf="!supplierForm.get('city').valid && supplierForm.get('city').touched">Please enter City</span>
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field class="example-full-width">
+        <input matInput placeholder="State Province" formControlName="stateProvince"
+               [errorStateMatcher]="matcher">
+        <mat-error>
+          <span *ngIf="!supplierForm.get('stateProvince').valid && supplierForm.get('stateProvince').touched">Please enter State Province</span>
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field class="example-full-width">
+        <input matInput placeholder="ZIP Postal Code" formControlName="zipPostalCode"
+               [errorStateMatcher]="matcher">
+        <mat-error>
+          <span *ngIf="!supplierForm.get('zipPostalCode').valid && supplierForm.get('zipPostalCode').touched">Please enter ZIP Postal Code</span>
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field class="example-full-width">
+        <input matInput placeholder="Country Region" formControlName="countryRegion"
+               [errorStateMatcher]="matcher">
+        <mat-error>
+          <span *ngIf="!supplierForm.get('countryRegion').valid && supplierForm.get('countryRegion').touched">Please enter Country Region</span>
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field class="example-full-width">
+        <input matInput placeholder="Web Page" formControlName="webPage"
+               [errorStateMatcher]="matcher">
+        <mat-error>
+          <span *ngIf="!supplierForm.get('webPage').valid && supplierForm.get('webPage').touched">Please enter Web Page</span>
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field class="example-full-width">
+        <input matInput placeholder="Notes" formControlName="notes"
+               [errorStateMatcher]="matcher">
+        <mat-error>
+          <span *ngIf="!supplierForm.get('notes').valid && supplierForm.get('notes').touched">Please enter Notes</span>
+        </mat-error>
+      </mat-form-field>
+
+
       <div class="button-row">
         <button type="submit" [disabled]="!supplierForm.valid" mat-flat-button color="primary"><mat-icon>save</mat-icon></button>
       </div>
