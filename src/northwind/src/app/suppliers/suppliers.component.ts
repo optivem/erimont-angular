@@ -9,7 +9,26 @@ import { Supplier } from './shared/supplier';
 })
 export class SuppliersComponent implements OnInit {
 
-  displayedColumns: string[] = ['id', 'company'];
+  displayedColumns: string[] = [
+    'id', 
+    'company',
+    'lastName',
+    'firstName',
+    'emailAddress',
+    'jobTitle',
+    'businessPhone',
+    'homePhone',
+    'mobilePhone',
+    'faxNumber',
+    'address',
+    'city',
+    'stateProvince',
+    'zipPostalCode',
+    'countryRegion',
+    'webPage',
+    'notes'
+  ];
+  
   data: Supplier[] = [];
   isLoadingResults = true;
 

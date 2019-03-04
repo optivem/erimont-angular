@@ -13,16 +13,21 @@ export class SupplierDetailComponent implements OnInit {
 
   supplier: Supplier = { id: 0, 
     company: '', 
-    contactName: '',
-    contactTitle: '',
+    lastName: '',
+    firstName: '',
+    emailAddress: '',
+    jobTitle: '',
+    businessPhone: '',
+    homePhone: '',
+    mobilePhone: '',
+    faxNumber: '',
     address: '',
     city: '',
-    region: '',
-    postalCode: '',
-    country: '',
-    phone: '',
-    fax: '',
-    homePage: ''
+    stateProvince: '',
+    zipPostalCode: '',
+    countryRegion: '',
+    webPage: '',
+    notes: ''
   };
   
   isLoadingResults = true;

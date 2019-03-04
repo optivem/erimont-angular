@@ -13,8 +13,25 @@ import { SupplierService } from '../shared/supplier.service';
 export class SupplierEditComponent implements OnInit {
 
   supplierForm: FormGroup;
+  
   id: number=0;
   company: string='';
+  lastName: string='';
+  firstName: string='';
+  emailAddress: string='';
+  jobTitle: string='';
+  businessPhone: string='';
+  homePhone: string='';
+  mobilePhone: string='';
+  faxNumber: string='';
+  address: string='';
+  city: string='';
+  stateProvince: string='';
+  zipPostalCode: string='';
+  countryRegion: string='';
+  webPage: string='';
+  notes: string='';
+
   isLoadingResults = false;
 
   constructor(private router: Router, private route: ActivatedRoute, private service: SupplierService, private formBuilder: FormBuilder) { }
