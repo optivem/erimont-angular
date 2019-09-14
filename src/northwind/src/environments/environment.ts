@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  apiUrl: 'http://localhost:54764/',
+  apiUrl: '', // for mock server to work -- jelena
+  // apiUrl: 'http://localhost:49560/',
 };
 
 /*

@@ -16,7 +16,7 @@ import {
   MatIconModule,
   MatButtonModule,
   MatCardModule,
-  MatFormFieldModule } from "@angular/material";
+  MatFormFieldModule } from '@angular/material';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
@@ -30,8 +30,9 @@ import { SuppliersModule } from './suppliers/suppliers.module';
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule,
     AppRoutingModule,
+    HttpClientModule,
+
     BrowserAnimationsModule,
     MatInputModule,
     MatTableModule,

@@ -12,6 +12,7 @@ const httpOptions = {
   headers: new HttpHeaders({'Content-Type': 'application/json'})
 };
 
+// private apiURL and httpOptions in export class
 const apiUrl = `${environment.apiUrl}/api/suppliers`;
 
 @Injectable({
@@ -20,12 +21,12 @@ const apiUrl = `${environment.apiUrl}/api/suppliers`;
 export class SupplierService {
 
   constructor(private http: HttpClient) { }
-  
+
   getSuppliers (): Observable<Supplier[]> {
     return this.http.get<Supplier[]>(apiUrl)
       .pipe(
-        tap(heroes => console.log('fetched suppliers')),
-        catchError(this.handleError('getSuppliers', []))
+        tap(_ => console.log('fetched suppliers')),
+        catchError(this.handleError<Supplier[]>('getSuppliers', []))
       );
   }
 
@@ -37,14 +38,17 @@ export class SupplierService {
     );
   }
 
+  // addSupplier (supplier: Supplier)
   addSupplier (supplier): Observable<Supplier> {
     return this.http.post<Supplier>(apiUrl, supplier, httpOptions).pipe(
-      tap((supplier: Supplier) => console.log(`added supplier w/ id=${supplier.id}`)),
+      tap((newSupplier: Supplier) => console.log(`added supplier w/ id=${newSupplier.id}`)),
       catchError(this.handleError<Supplier>('addSupplier'))
     );
   }
 
+  // updateSupplier (supplier: Supplier)
   updateSupplier (id, supplier): Observable<any> {
+    // delete line below
     const url = `${apiUrl}/${id}`;
     return this.http.put(url, supplier, httpOptions).pipe(
       tap(_ => console.log(`updated supplier id=${id}`)),
@@ -52,7 +56,9 @@ export class SupplierService {
     );
   }
 
+  // deleteHero (hero: Hero | number):
   deleteSupplier (id): Observable<Supplier> {
+    // const id = typeof hero === 'number' ? hero : hero.id;
     const url = `${apiUrl}/${id}`;
 
     return this.http.delete<Supplier>(url, httpOptions).pipe(
@@ -60,12 +66,14 @@ export class SupplierService {
       catchError(this.handleError<Supplier>('deleteSupplier'))
     );
   }
-    
+
   private handleError<T> (operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
 
       // TODO: send the error to remote logging infrastructure
       console.error(error); // log to console instead
+
+      // this.log(`${operation} failed: ${error.message}`);
 
       // Let the app keep running by returning an empty result.
       return of(result as T);

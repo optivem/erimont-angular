@@ -4,6 +4,10 @@ import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
+import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
+import { InMemoryDataService } from './shared/in-memory-data.service';
+
+// do this in app.module.ts
 import {
   MatInputModule,
   MatPaginatorModule,
@@ -13,7 +17,7 @@ import {
   MatIconModule,
   MatButtonModule,
   MatCardModule,
-  MatFormFieldModule } from "@angular/material";
+  MatFormFieldModule } from '@angular/material';
 
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -28,10 +32,16 @@ import { RouterModule } from '@angular/router';
 
 @NgModule({
   imports: [
+    // why is this re-imported if it's imported at root level
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
+
+    HttpClientInMemoryWebApiModule.forRoot(
+      InMemoryDataService, { dataEncapsulation: false }
+    ),
+
     BrowserAnimationsModule,
     MatInputModule,
     MatTableModule,

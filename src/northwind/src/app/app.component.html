@@ -10,3 +10,157 @@
 </div>
 
 <router-outlet></router-outlet>
+
+
+<!-- 
+  <nav class="navbar navbar-expand-sm bg-light">
+  <div class="container-fluid">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a routerLink="business/create" class="nav-link" routerLinkActive="active">
+          Create Business
+        </a>
+      </li>
+      <li class="nav-item">
+        <a routerLink="business" class="nav-link" routerLinkActive="active">
+          Business
+        </a>
+      </li> 
+    </ul>
+  </div>
+</nav>
+
+<div class="container">
+  <router-outlet></router-outlet>
+</div>
+ -->
+
+ <!-- 
+   <div class="card">
+  <div class="card-body">
+    <form>
+      <div class="form-group">
+        <label class="col-md-4">Person Name</label>
+        <input type="text" class="form-control" />
+      </div>
+      <div class="form-group">
+        <label class="col-md-4">Business Name </label>
+        <input type="text" class="form-control" />
+      </div>
+      <div class="form-group">
+        <label class="col-md-4">Business GST Number </label>
+        <input type="text" class="form-control" />
+      </div>
+      <div class="form-group">
+        <button type="submit" class="btn btn-primary">Add Business</button>
+      </div>
+    </form>
+  </div>
+</div>
+  -->
+
+
+
+  <!-- 
+    #7: Add Angular Form Validation
+We will use ReactiveFormsModule. So if you are new to Angular Form Validation, then please check out my this article Angular 7 Form Validation Example Tutorial on this blog.
+
+Now, import the ReactiveFormsModule inside the app.module.ts file.
+
+// app.module.ts
+
+import { ReactiveFormsModule } from '@angular/forms';
+
+imports: [
+    ...
+    ReactiveFormsModule
+],
+Now, we need to write the code for the app.component.ts file. Remember, this is not template-driven form. So we will change the code inside the app.component.ts file.
+
+First, we import the FormGroup, FormBuilder, Validators modules from @angular/forms.
+
+Also, create a constructor and instantiate the FormBuilder.
+
+So write the following code inside the gst-add.component.ts file.
+
+// gst-add.component.ts
+
+import { Component, OnInit } from '@angular/core';
+import { FormGroup,  FormBuilder,  Validators } from '@angular/forms';
+
+@Component({
+  selector: 'app-gst-add',
+  templateUrl: './gst-add.component.html',
+  styleUrls: ['./gst-add.component.css']
+})
+export class GstAddComponent implements OnInit {
+
+  angForm: FormGroup;
+  constructor(private fb: FormBuilder) {
+    this.createForm();
+  }
+
+  createForm() {
+    this.angForm = this.fb.group({
+      person_name: ['', Validators.required ],
+      business_name: ['', Validators.required ],
+      business_gst_number: ['', Validators.required ]
+    });
+  }
+
+  ngOnInit() {
+  }
+
+}
+We have used form builder to handle all the validation. So in that constructor, we are creating a form with the validation rules. In our example, there are three fields. If input text is empty, then it will give an error, and we need to display that error.
+
+Now, write the following code inside the gst-add.component.html file.
+
+<div class="card">
+  <div class="card-body">
+    <form [formGroup]="angForm" novalidate>
+      <div class="form-group">
+        <label class="col-md-4">Person Name</label>
+        <input type="text" class="form-control" formControlName="person_name" #person_name />
+      </div>
+      <div *ngIf="angForm.controls['person_name'].invalid && (angForm.controls['person_name'].dirty || angForm.controls['person_name'].touched)" class="alert alert-danger">
+        <div *ngIf="angForm.controls['person_name'].errors.required">
+          Person Name is required.
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-md-4">Business Name </label>
+        <input type="text" class="form-control" formControlName="business_name" #business_name />
+      </div>
+      <div *ngIf="angForm.controls['business_name'].invalid && (angForm.controls['business_name'].dirty || angForm.controls['business_name'].touched)" class="alert alert-danger">
+        <div *ngIf="angForm.controls['business_name'].errors.required">
+          Person Business is required.
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-md-4">Business GST Number </label>
+        <input type="text" class="form-control" formControlName="business_gst_number" #business_gst_number />
+      </div>
+      <div *ngIf="angForm.controls['business_gst_number'].invalid && (angForm.controls['business_gst_number'].dirty || angForm.controls['business_gst_number'].touched)" class="alert alert-danger">
+        <div *ngIf="angForm.controls['business_gst_number'].errors.required">
+          Business GST Number is required.
+        </div>
+      </div>
+      <div class="form-group">
+        <button type="submit" 
+        [disabled]="angForm.pristine || angForm.invalid" 
+        class="btn btn-primary">Add Business</button>
+      </div>
+    </form>
+  </div>
+</div>
+   -->
+
+<!-- <div class="form-group">
+    <button (click)="addBusiness(person_name.value, business_name.value, business_gst_number.value)"
+        [disabled]="angForm.pristine || angForm.invalid" 
+        class="btn btn-primary">
+        Add Business
+     </button>
+</div>
+ -->

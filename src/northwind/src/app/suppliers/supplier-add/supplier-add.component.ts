@@ -7,7 +7,7 @@ import { SupplierService } from '../shared/supplier.service';
 @Component({
   selector: 'app-supplier-add',
   templateUrl: './supplier-add.component.html',
-  styleUrls: ['./supplier-add.component.css']
+  styleUrls: ['./supplier-add.component.scss']
 })
 export class SupplierAddComponent implements OnInit {
 
@@ -51,9 +51,16 @@ export class SupplierAddComponent implements OnInit {
       'zipPostalCode' : [null, Validators.required],
       'countryRegion' : [null, Validators.required],
       'webPage' : [null, Validators.required],
+      // [null, null]
       'notes' : [null, Validators.required]
     });
   }
+
+  /* createUser(): void {
+    this.userService.createUser(this.user)
+    .subscribe( data => {
+      alert("User created successfully.");
+    }); */
 
   onFormSubmit(form:NgForm) {
     this.isLoadingResults = true;

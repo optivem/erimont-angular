@@ -8,7 +8,7 @@ import { SupplierService } from '../shared/supplier.service';
 @Component({
   selector: 'app-supplier-edit',
   templateUrl: './supplier-edit.component.html',
-  styleUrls: ['./supplier-edit.component.css']
+  styleUrls: ['./supplier-edit.component.scss']
 })
 export class SupplierEditComponent implements OnInit {
 
@@ -39,7 +39,7 @@ export class SupplierEditComponent implements OnInit {
   ngOnInit() {
     this.getSupplier(this.route.snapshot.params['id']);
     this.supplierForm = this.formBuilder.group({
-      'id' : [null, Validators.required],      
+      'id' : [null, Validators.required],
       'company' : [null, Validators.required],
       'lastName' : [null, Validators.required],
       'firstName' : [null, Validators.required],

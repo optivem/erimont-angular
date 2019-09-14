@@ -7,12 +7,12 @@ import { Supplier } from '../shared/supplier';
 @Component({
   selector: 'app-supplier-detail',
   templateUrl: './supplier-detail.component.html',
-  styleUrls: ['./supplier-detail.component.css']
+  styleUrls: ['./supplier-detail.component.scss']
 })
 export class SupplierDetailComponent implements OnInit {
 
-  supplier: Supplier = { id: 0, 
-    company: '', 
+  supplier: Supplier = { id: 0,
+    company: '',
     lastName: '',
     firstName: '',
     emailAddress: '',
@@ -29,7 +29,7 @@ export class SupplierDetailComponent implements OnInit {
     webPage: '',
     notes: ''
   };
-  
+
   isLoadingResults = true;
 
   constructor(private route: ActivatedRoute, private service: SupplierService, private router: Router) { }
