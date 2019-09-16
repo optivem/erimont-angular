@@ -1,24 +1,13 @@
-import { BrowserModule } from '@angular/platform-browser';
+import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
-import { InMemoryDataService } from './shared/in-memory-data.service';
+import { SupplierFakeDataService } from './shared/supplier-fake-data.service';
 
-// do this in app.module.ts
-import {
-  MatInputModule,
-  MatPaginatorModule,
-  MatProgressSpinnerModule,
-  MatSortModule,
-  MatTableModule,
-  MatIconModule,
-  MatButtonModule,
-  MatCardModule,
-  MatFormFieldModule } from '@angular/material';
-
+import { MaterialModule } from '../material.module';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
@@ -26,32 +15,21 @@ import { SuppliersComponent } from './suppliers.component';
 import { SupplierDetailComponent } from './supplier-detail/supplier-detail.component';
 import { SupplierAddComponent } from './supplier-add/supplier-add.component';
 import { SupplierEditComponent } from './supplier-edit/supplier-edit.component';
-
 import { SuppliersRoutingModule } from './suppliers-routing.module';
-import { RouterModule } from '@angular/router';
 
 @NgModule({
   imports: [
-    // why is this re-imported if it's imported at root level
-    BrowserModule,
+    CommonModule,
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
 
     HttpClientInMemoryWebApiModule.forRoot(
-      InMemoryDataService, { dataEncapsulation: false }
+      SupplierFakeDataService, { dataEncapsulation: false }
     ),
 
     BrowserAnimationsModule,
-    MatInputModule,
-    MatTableModule,
-    MatPaginatorModule,
-    MatSortModule,
-    MatProgressSpinnerModule,
-    MatIconModule,
-    MatButtonModule,
-    MatCardModule,
-    MatFormFieldModule,
+    MaterialModule,
     SuppliersRoutingModule
   ],
   declarations: [

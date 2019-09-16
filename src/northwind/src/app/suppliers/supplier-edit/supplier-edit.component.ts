@@ -13,24 +13,24 @@ import { SupplierService } from '../shared/supplier.service';
 export class SupplierEditComponent implements OnInit {
 
   supplierForm: FormGroup;
-  
-  id: number=0;
-  company: string='';
-  lastName: string='';
-  firstName: string='';
-  emailAddress: string='';
-  jobTitle: string='';
-  businessPhone: string='';
-  homePhone: string='';
-  mobilePhone: string='';
-  faxNumber: string='';
-  address: string='';
-  city: string='';
-  stateProvince: string='';
-  zipPostalCode: string='';
-  countryRegion: string='';
-  webPage: string='';
-  notes: string='';
+
+  id: number;
+  company: string;
+  lastName: string;
+  firstName: string;
+  emailAddress: string;
+  jobTitle: string;
+  businessPhone: string;
+  homePhone: string;
+  mobilePhone: string;
+  faxNumber: string;
+  address: string;
+  city: string;
+  stateProvince: string;
+  zipPostalCode: string;
+  countryRegion: string;
+  webPage: string;
+  notes: string;
 
   isLoadingResults = false;
 
@@ -51,11 +51,11 @@ export class SupplierEditComponent implements OnInit {
       'faxNumber' : [null, Validators.required],
       'address' : [null, Validators.required],
       'city' : [null, Validators.required],
-      'stateProvince' : [null, Validators.required],
+      'stateProvince' : [null, null],
       'zipPostalCode' : [null, Validators.required],
       'countryRegion' : [null, Validators.required],
       'webPage' : [null, Validators.required],
-      'notes' : [null, Validators.required]
+      'notes' : [null, null]
     });
   }
 
@@ -84,8 +84,8 @@ export class SupplierEditComponent implements OnInit {
     });
   }
 
-  onFormSubmit(form:NgForm) {
-    let id = this.id; 
+  onFormSubmit(form: NgForm) {
+    let id = this.id;
     this.isLoadingResults = true;
     this.service.updateSupplier(this.id, form)
       .subscribe(res => {

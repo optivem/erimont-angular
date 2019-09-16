@@ -6,7 +6,7 @@ import { catchError, tap, map } from 'rxjs/operators';
 
 import { environment } from '../../../environments/environment';
 
-import { Supplier } from './supplier';
+import { ISupplier } from './supplier';
 
 const httpOptions = {
   headers: new HttpHeaders({'Content-Type': 'application/json'})
@@ -22,33 +22,30 @@ export class SupplierService {
 
   constructor(private http: HttpClient) { }
 
-  getSuppliers (): Observable<Supplier[]> {
-    return this.http.get<Supplier[]>(apiUrl)
+  getSuppliers (): Observable<ISupplier[]> {
+    return this.http.get<ISupplier[]>(apiUrl)
       .pipe(
         tap(_ => console.log('fetched suppliers')),
-        catchError(this.handleError<Supplier[]>('getSuppliers', []))
+        catchError(this.handleError<ISupplier[]>('getSuppliers', []))
       );
   }
 
-  getSupplier(id: number): Observable<Supplier> {
+  getSupplier(id: number): Observable<ISupplier> {
     const url = `${apiUrl}/${id}`;
-    return this.http.get<Supplier>(url).pipe(
+    return this.http.get<ISupplier>(url).pipe(
       tap(_ => console.log(`fetched supplier id=${id}`)),
-      catchError(this.handleError<Supplier>(`getSupplier id=${id}`))
+      catchError(this.handleError<ISupplier>(`getSupplier id=${id}`))
     );
   }
 
-  // addSupplier (supplier: Supplier)
-  addSupplier (supplier): Observable<Supplier> {
-    return this.http.post<Supplier>(apiUrl, supplier, httpOptions).pipe(
-      tap((newSupplier: Supplier) => console.log(`added supplier w/ id=${newSupplier.id}`)),
-      catchError(this.handleError<Supplier>('addSupplier'))
+  addSupplier (supplier): Observable<ISupplier> {
+    return this.http.post<ISupplier>(apiUrl, supplier, httpOptions).pipe(
+      tap((newSupplier: ISupplier) => console.log(`added supplier w/ id=${newSupplier.id}`)),
+      catchError(this.handleError<ISupplier>('addSupplier'))
     );
   }
 
-  // updateSupplier (supplier: Supplier)
   updateSupplier (id, supplier): Observable<any> {
-    // delete line below
     const url = `${apiUrl}/${id}`;
     return this.http.put(url, supplier, httpOptions).pipe(
       tap(_ => console.log(`updated supplier id=${id}`)),
@@ -56,14 +53,12 @@ export class SupplierService {
     );
   }
 
-  // deleteHero (hero: Hero | number):
-  deleteSupplier (id): Observable<Supplier> {
-    // const id = typeof hero === 'number' ? hero : hero.id;
+  deleteSupplier (id): Observable<ISupplier> {
     const url = `${apiUrl}/${id}`;
 
-    return this.http.delete<Supplier>(url, httpOptions).pipe(
+    return this.http.delete<ISupplier>(url, httpOptions).pipe(
       tap(_ => console.log(`deleted supplier id=${id}`)),
-      catchError(this.handleError<Supplier>('deleteSupplier'))
+      catchError(this.handleError<ISupplier>('deleteSupplier'))
     );
   }
 

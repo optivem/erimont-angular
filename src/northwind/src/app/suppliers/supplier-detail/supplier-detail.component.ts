@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
 import { SupplierService } from '../shared/supplier.service';
-import { Supplier } from '../shared/supplier';
+import { ISupplier } from '../shared/supplier';
 
 @Component({
   selector: 'app-supplier-detail',
@@ -11,7 +11,7 @@ import { Supplier } from '../shared/supplier';
 })
 export class SupplierDetailComponent implements OnInit {
 
-  supplier: Supplier = { id: 0,
+  supplier: ISupplier = { id: 0,
     company: '',
     lastName: '',
     firstName: '',

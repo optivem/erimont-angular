@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+
+import { ISupplier } from './shared/supplier';
 import { SupplierService } from './shared/supplier.service';
-import { Supplier } from './shared/supplier';
 
 @Component({
   selector: 'app-suppliers',
@@ -29,7 +30,7 @@ export class SuppliersComponent implements OnInit {
     'notes'
   ];
 
-  data: Supplier[] = [];
+  data: ISupplier[] = [];
   isLoadingResults = true;
 
   // constructor(private apiService: ApiService) { }

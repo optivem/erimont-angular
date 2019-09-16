@@ -1,26 +1,12 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
-
-import { AppRoutingModule } from './app-routing.module';
+// TODO: CoreModule
 import { AppComponent } from './app.component';
-
-import {
-  MatInputModule,
-  MatPaginatorModule,
-  MatProgressSpinnerModule,
-  MatSortModule,
-  MatTableModule,
-  MatIconModule,
-  MatButtonModule,
-  MatCardModule,
-  MatFormFieldModule } from '@angular/material';
-
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
+import { AppRoutingModule } from './app-routing.module';
+import { MaterialModule } from './material.module';
 import { SuppliersModule } from './suppliers/suppliers.module';
+
 
 @NgModule({
   declarations: [
@@ -28,21 +14,8 @@ import { SuppliersModule } from './suppliers/suppliers.module';
   ],
   imports: [
     BrowserModule,
-    FormsModule,
-    ReactiveFormsModule,
     AppRoutingModule,
-    HttpClientModule,
-
-    BrowserAnimationsModule,
-    MatInputModule,
-    MatTableModule,
-    MatPaginatorModule,
-    MatSortModule,
-    MatProgressSpinnerModule,
-    MatIconModule,
-    MatButtonModule,
-    MatCardModule,
-    MatFormFieldModule,
+    MaterialModule,
     SuppliersModule
   ],
   providers: [],

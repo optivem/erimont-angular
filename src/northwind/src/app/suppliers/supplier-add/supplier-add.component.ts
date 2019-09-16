@@ -13,22 +13,22 @@ export class SupplierAddComponent implements OnInit {
 
   supplierForm: FormGroup;
 
-  company: string='';
-  lastName: string='';
-  firstName: string='';
-  emailAddress: string='';
-  jobTitle: string='';
-  businessPhone: string='';
-  homePhone: string='';
-  mobilePhone: string='';
-  faxNumber: string='';
-  address: string='';
-  city: string='';
-  stateProvince: string='';
-  zipPostalCode: string='';
-  countryRegion: string='';
-  webPage: string='';
-  notes: string='';
+  company: string;
+  lastName: string;
+  firstName: string;
+  emailAddress: string;
+  jobTitle: string;
+  businessPhone: string;
+  homePhone: string;
+  mobilePhone: string;
+  faxNumber: string;
+  address: string;
+  city: string;
+  stateProvince: string;
+  zipPostalCode: string;
+  countryRegion: string;
+  webPage: string;
+  notes: string;
 
   isLoadingResults = false;
 
@@ -47,12 +47,11 @@ export class SupplierAddComponent implements OnInit {
       'faxNumber' : [null, Validators.required],
       'address' : [null, Validators.required],
       'city' : [null, Validators.required],
-      'stateProvince' : [null, Validators.required],
+      'stateProvince' : [null, null],
       'zipPostalCode' : [null, Validators.required],
       'countryRegion' : [null, Validators.required],
       'webPage' : [null, Validators.required],
-      // [null, null]
-      'notes' : [null, Validators.required]
+      'notes' : [null, null]
     });
   }
 
@@ -62,7 +61,7 @@ export class SupplierAddComponent implements OnInit {
       alert("User created successfully.");
     }); */
 
-  onFormSubmit(form:NgForm) {
+  onFormSubmit(form: NgForm) {
     this.isLoadingResults = true;
     this.service.addSupplier(form)
       .subscribe(res => {
