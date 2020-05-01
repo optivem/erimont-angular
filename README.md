@@ -3,6 +3,17 @@ Optivem Northwind (Angular)
 
 # Instructions
 
+## First time run
+
+Run the following in the termina:
+ng serve
+
+If you get this error:
+Could not find module "@angular-devkit/build-angular"
+
+Then execute the following command:
+npm install --save-dev @angular-devkit/build-angular
+
 ## Components - Supplier
 
 Go to src\northwind (application root):
